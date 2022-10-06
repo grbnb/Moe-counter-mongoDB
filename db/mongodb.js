@@ -10,6 +10,12 @@ mongoose.connect(mongodbURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false
+}, function (error) {
+    if (error) {
+        console.log("连接mongo数据库失败:" + error.message)
+    } else {
+        console.log("连接mongo数据库成功")
+    }
 })
 
 const Count = mongoose.connection.model('Count', schema)
